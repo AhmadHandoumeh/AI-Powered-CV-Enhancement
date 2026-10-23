@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-Powered CV Enhancement</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ================= HEADER & NAVIGATION ================= -->
+  <header>
+    <h1>CVRefine - AI-Powered CV Enhancement</h1>
+    <p>Optimize your resume for applicant tracking systems (ATS) and target jobs in one place.</p>
+
+    <nav>
+      <ul>
+        <li><a href="#upload-section">1. Upload CV</a></li>
+        <li><a href="#job-section">2. Job Description</a></li>
+        <li><a href="#analysis-section">3. Analysis Results</a></li>
+        <li><a href="#preview-section">4. Preview & Download</a></li>
+        <li><a href="#auth-section">Login / Register</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <hr>
+
+  <main>
+
+    <!-- ================= LOGIN & REGISTRATION SECTION ================= -->
+    <section id="auth-section">
+      <h2>User Account (Login & Registration)</h2>
+
+      <!-- Sign In Form -->
+      <fieldset>
+        <legend>Sign In</legend>
+        <form action="/login" method="post">
+          <div>
+            <label for="login-email">Email Address:</label>
+            <input type="email" id="login-email" name="email" required placeholder="user@example.com">
+          </div>
+          <br>
+          <div>
+            <label for="login-password">Password:</label>
+            <input type="password" id="login-password" name="password" required placeholder="••••••••">
+          </div>
+          <br>
+          <div>
+            <input type="checkbox" id="remember-me" name="remember">
+            <label for="remember-me">Remember me</label>
+          </div>
+          <br>
+          <button type="submit">Sign In</button>
+        </form>
+      </fieldset>
+
+      <br>
+
+      <!-- Register Form -->
+      <fieldset>
+        <legend>Create New Account</legend>
+        <form action="/register" method="post">
+          <div>
+            <label for="register-name">Full Name:</label>
+            <input type="text" id="register-name" name="name" required placeholder="Jane Doe">
+          </div>
+          <br>
+          <div>
+            <label for="register-email">Email Address:</label>
+            <input type="email" id="register-email" name="email" required placeholder="jane@example.com">
+          </div>
+          <br>
+          <div>
+            <label for="register-password">Create Password:</label>
+            <input type="password" id="register-password" name="password" required placeholder="Minimum 6 characters">
+          </div>
+          <br>
+          <div>
+            <input type="checkbox" id="agree-terms" name="terms" required>
+            <label for="agree-terms">I agree to the Terms of Service & Privacy Policy</label>
+          </div>
+          <br>
+          <button type="submit">Register</button>
+        </form>
+      </fieldset>
+    </section>
+
+    <hr>
+
+    <!-- ================= STEP 1: CV UPLOAD SECTION ================= -->
+    <section id="upload-section">
+      <h2>Step 1: CV Upload</h2>
+      <p>Upload your current CV in PDF, DOCX, or TXT format, or paste your CV text below.</p>
+
+      <form action="/upload-cv" method="post" enctype="multipart/form-data">
+        <div>
+          <label for="cv-file">Select CV File:</label>
+          <input type="file" id="cv-file" name="cv_file" accept=".pdf,.docx,.doc,.txt">
+        </div>
+
+        <br>
+
+        <div>
+          <label for="cv-raw-text">Or Paste CV Text Here:</label>
+          <br>
+          <textarea id="cv-raw-text" name="cv_raw_text" rows="10" cols="60" placeholder="Paste full resume text (contact info, summary, experience, skills)..."></textarea>
+        </div>
+
+        <br>
+
+        <button type="button">Load Sample CV</button>
+        <button type="reset">Clear</button>
+      </form>
+    </section>
+
+    <hr>
+
+    <!-- ================= STEP 2: TARGET JOB DESCRIPTION ================= -->
+    <section id="job-section">
+      <h2>Step 2: Target Job Description</h2>
+      <p>Paste the job post or requirements you want to tailor your CV for.</p>
+
+      <form action="/analyze" method="post">
+        <div>
+          <label for="job-title-input">Target Job Title:</label>
+          <input type="text" id="job-title-input" name="job_title" placeholder="e.g. Senior Frontend Engineer">
+        </div>
+
+        <br>
+
+        <div>
+          <label for="job-description-text">Job Description & Responsibilities:</label>
+          <br>
+          <textarea id="job-description-text" name="job_description" rows="10" cols="60" placeholder="Paste responsibilities, required qualifications, technical stack, etc..."></textarea>
+        </div>
+
+        <br>
+
+        <div>
+          <span>Quick load role:</span>
+          <button type="button">Senior Frontend Engineer</button>
+          <button type="button">Full-Stack Developer</button>
+          <button type="button">Product Manager</button>
+        </div>
+
+        <br>
+
+        <!-- Main action trigger -->
+        <button type="submit"><strong>Analyze & Enhance CV Now</strong></button>
+      </form>
+    </section>
+
+    <hr>
+
+    <!-- ================= STEP 3: ANALYSIS RESULTS AREA ================= -->
+    <section id="analysis-section">
+      <h2>Step 3: Analysis Results Area</h2>
+
+      <!-- Score overview -->
+      <article>
+        <h3>ATS Match Score</h3>
+        <p>Current Match: <strong>68%</strong></p>
+        <progress value="68" max="100">68%</progress>
+
+        <p>Optimized Potential Score: <strong>94%</strong></p>
+        <progress value="94" max="100">94%</progress>
+      </article>
+
+      <!-- Checklist breakdown -->
+      <article>
+        <h3>ATS Metrics Breakdown</h3>
+        <ul>
+          <li>Keyword Density: <strong>72%</strong></li>
+          <li>Action Verbs Strength: <strong>65%</strong></li>
+          <li>Quantified Impact (Metrics): <strong>58%</strong></li>
+          <li>Formatting Cleanliness: <strong>95%</strong></li>
+        </ul>
+      </article>
+
+      <!-- Keyword analysis -->
+      <article>
+        <h3>Keyword Matching Analysis</h3>
+
+        <h4>Matched Skills Found in CV:</h4>
+        <ul>
+          <li>React</li>
+          <li>TypeScript</li>
+          <li>JavaScript</li>
+          <li>REST APIs</li>
+          <li>Git</li>
+        </ul>
+
+        <h4>Missing Critical Keywords from Job Description:</h4>
+        <ul>
+          <li>GraphQL</li>
+          <li>CI/CD & GitHub Actions</li>
+          <li>Core Web Vitals & Performance Optimization</li>
+          <li>Automated Testing (Jest / Playwright)</li>
+          <li>Docker</li>
+        </ul>
+      </article>
+
+      <!-- Suggestions -->
+      <article>
+        <h3>Tailored Recommendations</h3>
+        <ol>
+          <li>
+            <strong>Add Measurable Metrics:</strong> Use the XYZ formula (Accomplished [X] as measured by [Y] by doing [Z]).
+          </li>
+          <li>
+            <strong>Replace Passive Language:</strong> Start bullet points with strong verbs (e.g. "Architected", "Spearheaded", "Engineered").
+          </li>
+          <li>
+            <strong>Align Professional Title:</strong> Match the headline with "Senior Frontend Engineer" for immediate relevance.
+          </li>
+        </ol>
+
+        <button type="button">Apply All Recommendations</button>
+      </article>
+    </section>
+
+    <hr>
+
+    <!-- ================= STEP 4: IMPROVED CV PREVIEW & DOWNLOAD AREA ================= -->
+    <section id="preview-section">
+      <h2>Step 4: Improved CV Preview & Download Area</h2>
+
+      <!-- Actions/Downloads -->
+      <nav>
+        <button type="button" onclick="window.print()">Print / Save as PDF</button>
+        <button type="button">Download as .TXT</button>
+        <button type="button">Download as .HTML</button>
+        <button type="button">Copy Text to Clipboard</button>
+      </nav>
+
+      <br>
+
+      <!-- CV Preview Document -->
+      <article>
+        <header>
+          <h1>ALEX MORGAN</h1>
+          <p><strong>Senior Frontend Engineer</strong></p>
+          <address>
+            Email: <a href="mailto:alex.morgan@email.com">alex.morgan@email.com</a> |
+            Phone: +1 (555) 234-8901 |
+            Location: San Francisco, CA |
+            LinkedIn: linkedin.com/in/alexmorgan |
+            GitHub: github.com/alexm-code
+          </address>
+        </header>
+
+        <hr>
+
+        <!-- Professional Summary -->
+        <section>
+          <h3>PROFESSIONAL SUMMARY</h3>
+          <p>
+            Results-driven Senior Frontend Engineer with 4+ years spearheading scalable web applications, enterprise design systems, and cloud-native UI architectures. Proven record optimizing Core Web Vitals by 42% and increasing conversion rates by 28% across high-volume SaaS platforms.
+          </p>
+        </section>
+
+        <!-- Skills -->
+        <section>
+          <h3>CORE COMPETENCIES & TECHNICAL SKILLS</h3>
+          <ul>
+            <li>React 19 & Next.js</li>
+            <li>TypeScript & JavaScript (ES6+)</li>
+            <li>Tailwind CSS & Design Systems</li>
+            <li>CI/CD Pipelines & GitHub Actions</li>
+            <li>GraphQL & RESTful APIs</li>
+            <li>Core Web Vitals & Web Performance</li>
+            <li>Automated Testing (Jest, Playwright)</li>
+            <li>Docker & Cloud Deployments</li>
+          </ul>
+        </section>
+
+        <!-- Experience -->
+        <section>
+          <h3>PROFESSIONAL EXPERIENCE</h3>
+
+          <article>
+            <h4>Senior Frontend Engineer – TechWave Solutions</h4>
+            <p><small>San Francisco, CA | 2023 – Present</small></p>
+            <ul>
+              <li>Architected and delivered 14+ high-traffic client dashboards in React & TypeScript, boosting daily active user retention by 34%.</li>
+              <li>Spearheaded REST & GraphQL API integrations, reducing frontend payload latency by 45% through predictive caching.</li>
+              <li>Championed performance audits targeting Core Web Vitals, slashing First Contentful Paint by 1.2s and elevating Lighthouse scores to 98/100.</li>
+              <li>Mentored junior developers and introduced automated CI/CD PR checks, cutting QA regression cycles by 25%.</li>
+            </ul>
+          </article>
+
+          <article>
+            <h4>Web Developer – PixelCraft Studio</h4>
+            <p><small>San Jose, CA | 2021 – 2023</small></p>
+            <ul>
+              <li>Engineered 30+ responsive, WCAG 2.1 AA-compliant eCommerce landing pages resulting in a 28% lift in average checkout conversions.</li>
+              <li>Constructed reusable modular UI component library, reducing feature turnaround time for the agency by 40%.</li>
+              <li>Established automated cross-browser testing pipelines with Playwright, catching 99% of UI defects prior to production.</li>
+            </ul>
+          </article>
+        </section>
+
+        <!-- Education -->
+        <section>
+          <h3>EDUCATION</h3>
+          <p>
+            <strong>B.S. in Computer Science</strong> – University of California, Davis (2017 – 2021)<br>
+            <small>Dean's Honor List, coursework in Data Structures, Algorithms, and Software Engineering</small>
+          </p>
+        </section>
+
+        <!-- Certifications -->
+        <section>
+          <h3>CERTIFICATIONS</h3>
+          <ul>
+            <li>AWS Certified Cloud Practitioner</li>
+            <li>Meta Front-End Developer Professional Certificate</li>
+          </ul>
+        </section>
+      </article>
+    </section>
+
+  </main>
+
+  <hr>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <p><small>&copy; 2026 CVRefine. All user data processed securely and privately.</small></p>
+  </footer>
+
+</body>
+</html>
