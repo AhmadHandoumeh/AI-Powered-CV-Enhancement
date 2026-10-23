@@ -11,24 +11,106 @@
 
     <p>Improve your CV and match it with your target job.</p>
 
-    <form>
-        <label for="cv">Upload your CV (PDF):</label>
-        <input type="file" id="cv" name="cv" accept=".pdf">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
 
-        <br><br>
+        <h3>Upload CV</h3>
+        {{ form.cv }}
+        {{ form.cv.errors }}
 
-        <label for="job">Job Description:</label>
-        <textarea
-            id="job"
-            name="job_description"
-            rows="8"
-            cols="50"
-            placeholder="Paste the target job description here..."
-        ></textarea>
 
-        <br><br>
+        
+        <h3>Target Job Description (Optional)</h3>
+        {{ form.job_description }}
+        {{ form.job_description.errors }}
 
-        <button type="submit">Analyze CV</button>
+
+        <input type="submit">
+            Analyze CV
+        </input>
+
     </form>
+
+    {% if page == 'display' %}
+        <div>
+
+
+            <hr>
+            
+            <h1>CV Analysis Results</h1>
+
+            <p>Analyzed file: {{ filename }}</p>
+
+            <h2>Professional Summary</h2>
+            <p>{{ analysis.professional_summary }}</p>
+
+            <h2>Extracted Skills</h2>
+            <ul>
+                {% for skill in analysis.skills %}
+                    <li>{{ skill }}</li>
+                {% empty %}
+                    <li>No skills identified.</li>
+                {% endfor %}
+            </ul>
+
+            <h2>Strengths</h2>
+            <ul>
+                {% for strength in analysis.strengths %}
+                    <li>{{ strength }}</li>
+                {% endfor %}
+            </ul>
+
+            <h2>Weaknesses</h2>
+            <ul>
+                {% for weakness in analysis.weaknesses %}
+                    <li>{{ weakness }}</li>
+                {% endfor %}
+            </ul>
+
+            <h2>Improvement Suggestions</h2>
+            <ul>
+                {% for suggestion in analysis.improvement_suggestions %}
+                    <li>{{ suggestion }}</li>
+                {% endfor %}
+            </ul>
+
+            <h2>Improved Professional Summary</h2>
+            <p>{{ analysis.improved_summary }}</p>
+
+            <h2>Improved Project Bullets</h2>
+            <ul>
+                {% for bullet in analysis.improved_project_bullets %}
+                    <li>{{ bullet }}</li>
+                {% empty %}
+                    <li>No project improvements available.</li>
+                {% endfor %}
+            </ul>
+
+            <h2>Improved Experience Bullets</h2>
+            <ul>
+                {% for bullet in analysis.improved_experience_bullets %}
+                    <li>{{ bullet }}</li>
+                {% empty %}
+                    <li>No experience improvements available.</li>
+                {% endfor %}
+            </ul>
+
+        </div>
+
+
+
+
+    {% endif %}
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+        
