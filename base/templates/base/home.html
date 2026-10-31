@@ -1,38 +1,80 @@
 
+<html lang="en">
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}" />
     <title>CV Enhancement</title>
 </head>
+
 <body>
-    <h1>AI-Powered CV Enhancement</h1>
 
-    <p>Improve your CV and match it with your target job.</p>
+  <!-- ================= HEADER & NAVIGATION ================= -->
+  <header>
+    <h1>CVRefine - AI-Powered CV Enhancement</h1>
+    <p>Optimize your resume for applicant tracking systems (ATS) and target jobs in one place.</p>
 
-    <form method="POST" enctype="multipart/form-data">
+    <nav>
+      <ul>
+        <li><a href="#upload-section">1. Upload CV</a></li>
+        <li><a href="#analysis-section">2. Analysis Results</a></li>
+
+      </ul>
+    </nav>
+  </header>
+
+  <hr>
+
+  <main>
+
+    <!-- ================= STEP 1: CV UPLOAD SECTION ================= -->
+    <section id="upload-section">
+      <h2>Step 1: CV Upload</h2>
+      <p>Upload your current CV in PDF, DOCX, or TXT format, or paste your CV text below.</p>
+
+      <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
 
-        <h3>Upload CV</h3>
         {{ form.cv }}
+        
         {{ form.cv.errors }}
 
+        <h2>Step 2: Target Job Description</h2>
+        <p>Paste the job post or requirements you want to tailor your CV for.</p>
 
-        
-        <h3>Target Job Description (Optional)</h3>
-        {{ form.job_description }}
-        {{ form.job_description.errors }}
-
-
-        <input type="submit">
-            Analyze CV
-        </input>
-
-    </form>
-
-    {% if page == 'display' %}
         <div>
+          <label for="job-title-input">Target Job Title:</label>
+          <input type="text" id="job-title-input" name="job_title" placeholder="e.g. Senior Frontend Engineer">
+        </div>
+
+
+        <div>
+          <label for="job-description-text">Job Description & Responsibilities:</label>
+          <br>
+          <textarea id="job-description-text" name="job_description" rows="10" cols="60" placeholder="Paste responsibilities, required qualifications, technical stack, etc..."></textarea>
+        </div>
+
+                <!-- Main action trigger -->
+        <button type="submit"><strong>Analyze & Enhance CV Now</strong></button>
+        <button type="reset">Clear</button>
+      </form>
+      
+      
+      <br>
+      <br>
+      <section id="analysis-section">
+
+
+      
+      <h2>Step 3: Analysis Results Area</h2>
+  
+      <article>
+        {% if page == 'display' %}
+        <div>
+
 
 
             <hr>
@@ -100,15 +142,27 @@
 
 
 
-    {% endif %}
+        {% endif %}
+
+
+      </article>
+
+    </section>
+
+    <hr>
+
+  </main>
+
+  <hr>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <p><small>&copy; 2026 CVRefine. All user data processed securely and privately.</small></p>
+  </footer>
+
 
 </body>
 </html>
-
-
-
-
-
 
 
 

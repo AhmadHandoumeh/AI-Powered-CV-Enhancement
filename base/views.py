@@ -55,6 +55,8 @@ def upload_cv(request):
                 )
 
 
+
+
             except (OpenAIError, ValueError) as e:
                 form.add_error(
                     None,

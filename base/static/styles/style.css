@@ -1,0 +1,403 @@
+/* ==========================================================================
+   1. RESET & BASE STYLES
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  color: #1e293b;
+  background-color: #f8fafc;
+  padding-bottom: 60px;
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #e2e8f0;
+  margin: 16px 0;
+}
+
+h1, h2, h3, h4 {
+  color: #0f172a;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+h2 {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+p {
+  color: #475569;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+
+/* ==========================================================================
+   2. HEADER & NAVIGATION
+   ========================================================================== */
+header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 24px 20px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+header h1 {
+  font-size: 1.75rem;
+  color: #0f172a;
+  letter-spacing: -0.5px;
+}
+
+header p {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-top: 4px;
+  margin-bottom: 16px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4338ca;
+  background-color: #eef2ff;
+  padding: 6px 14px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+nav ul li a:hover {
+  background-color: #4338ca;
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   3. SECTIONS & CARDS
+   ========================================================================== */
+section {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+/* Forms, Inputs, Buttons */
+fieldset {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 18px;
+  background-color: #f8fafc;
+  margin-bottom: 16px;
+}
+
+legend {
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0 8px;
+  color: #334155;
+}
+
+label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 6px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="file"],
+textarea {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  color: #1e293b;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+input[type="checkbox"] {
+  accent-color: #4338ca;
+  margin-right: 6px;
+}
+
+/* Buttons */
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 9px 18px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  background-color: #ffffff;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-right: 8px;
+  margin-top: 6px;
+}
+
+button:hover {
+  background-color: #f1f5f9;
+  border-color: #94a3b8;
+}
+
+button[type="submit"] {
+  background-color: #4338ca;
+  color: #ffffff;
+  border-color: #4338ca;
+}
+
+button[type="submit"]:hover {
+  background-color: #3730a3;
+  border-color: #3730a3;
+}
+
+/* ==========================================================================
+   4. ANALYSIS RESULTS SECTION (#analysis-section)
+   ========================================================================== */
+#analysis-section article {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-top: 16px;
+}
+
+#analysis-section h3 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #1e293b;
+}
+
+#analysis-section h4 {
+  font-size: 0.9rem;
+  margin-top: 12px;
+  margin-bottom: 6px;
+}
+
+progress {
+  width: 100%;
+  height: 12px;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  border: none;
+  background-color: #e2e8f0;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #e2e8f0;
+}
+
+progress::-webkit-progress-value {
+  background-color: #10b981;
+}
+
+progress::-moz-progress-bar {
+  background-color: #10b981;
+}
+
+#analysis-section ul,
+#analysis-section ol {
+  padding-left: 20px;
+  font-size: 0.9rem;
+  color: #334155;
+}
+
+#analysis-section li {
+  margin-bottom: 6px;
+}
+
+/* ==========================================================================
+   5. IMPROVED CV PREVIEW SECTION (#preview-section)
+   ========================================================================== */
+#preview-section nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+/* Resume Paper Sheet Layout */
+#preview-section > article {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  padding: 40px;
+  margin: 0 auto;
+  max-width: 820px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+#preview-section header {
+  position: static;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0 0 16px 0;
+  text-align: left;
+}
+
+#preview-section header h1 {
+  font-size: 2rem;
+  letter-spacing: 0.5px;
+  color: #0f172a;
+}
+
+#preview-section address {
+  font-style: normal;
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-top: 8px;
+  line-height: 1.6;
+}
+
+#preview-section address a {
+  color: #4338ca;
+  text-decoration: none;
+}
+
+#preview-section section {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 16px 0;
+  border-bottom: 1px solid #e2e8f0;
+  border-radius: 0;
+}
+
+#preview-section section:last-of-type {
+  border-bottom: none;
+}
+
+#preview-section section h3 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #0f172a;
+  border-bottom: 1.5px solid #0f172a;
+  padding-bottom: 4px;
+  margin-bottom: 10px;
+}
+
+#preview-section section h4 {
+  font-size: 0.95rem;
+  color: #1e293b;
+  margin-top: 10px;
+}
+
+#preview-section section ul {
+  padding-left: 20px;
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #334155;
+}
+
+#preview-section section li {
+  margin-bottom: 4px;
+}
+
+/* ==========================================================================
+   6. FOOTER
+   ========================================================================== */
+footer {
+  text-align: center;
+  padding: 24px;
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   7. PRINT STYLESHEET (Clean resume export to PDF/Print)
+   ========================================================================== */
+@media print {
+  body {
+    background: #ffffff !important;
+    padding: 0 !important;
+  }
+
+  /* Hide everything except the resume preview paper */
+  header,
+  nav,
+  hr,
+  footer,
+  #auth-section,
+  #upload-section,
+  #job-section,
+  #analysis-section,
+  #preview-section > h2,
+  #preview-section > nav {
+    display: none !important;
+  }
+
+  main {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  #preview-section {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+
+  #preview-section > article {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
