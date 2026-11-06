@@ -1,0 +1,18 @@
+Title: Technical Resume Guidelines
+Category: technical_skills
+
+Organize technical skills into meaningful groups
+such as programming languages, frameworks,
+databases, and cloud technologies.
+
+Include relevant projects that demonstrate
+practical application of technical skills.
+
+Describe the problem, implementation, and
+outcome of important projects.
+
+Mention tools and technologies only when the
+applicant has genuine experience with them.
+
+Where appropriate, include links to GitHub
+repositories or project demonstrations.

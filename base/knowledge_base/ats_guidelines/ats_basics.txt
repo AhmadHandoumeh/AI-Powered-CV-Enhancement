@@ -1,0 +1,19 @@
+Title: ATS Resume Formatting Guidelines
+Category: ats_guidelines
+
+Use standard section headings such as Experience,
+Education, Skills, and Projects.
+
+Prefer a simple, single-column layout when
+compatibility with automated resume parsers matters.
+
+Avoid placing essential contact information
+inside headers, footers, or images.
+
+Use relevant keywords naturally when they
+accurately describe the applicant's experience.
+
+Follow the file format requested by the employer.
+
+ATS systems differ, so no formatting approach
+guarantees successful parsing or selection.

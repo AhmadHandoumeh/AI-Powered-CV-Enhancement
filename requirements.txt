@@ -3,4 +3,5 @@ langchain
 langchain-communinty
 pymupdf 
 python-docx
-
+langchain-chroma
+langchain-text_splitters

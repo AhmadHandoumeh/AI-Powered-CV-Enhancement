@@ -53,11 +53,13 @@ def upload_cv(request):
                     extracted_text,
                     job_description
                 )
+                # print(analysis)
 
 
 
 
             except (OpenAIError, ValueError) as e:
+                print(e)
                 form.add_error(
                     None,
                     "AI analysis failed. Please try again."
